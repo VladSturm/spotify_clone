@@ -37,6 +37,7 @@ function App() {
       });
 
       spotify.getUserPlaylists().then((playlists) => {
+        console.log(playlists)
         dispatch ( {
           type: 'SET_PLAYLIST',
           playlists: playlists,
