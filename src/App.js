@@ -37,20 +37,27 @@ function App() {
       });
 
       spotify.getUserPlaylists().then((playlists) => {
-        console.log(playlists)
+        
         dispatch ( {
           type: 'SET_PLAYLIST',
           playlists: playlists,
         })
       })
+
+      spotify.getPlaylist('4iF6TGQcLJRzT8pWTMlHy6').then(res => {
+       
+        dispatch({
+          type: "SET_DISCOVER_WEEKLY",
+          discover_weekly: res,
+        })
+      })
     }
-    console.log('I have a token', token)
+    
     
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  console.log('user', user);
-  console.log('token', token);
+  
 
   return (
     <div className="App">
